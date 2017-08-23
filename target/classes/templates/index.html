@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="leialoApp" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Leilao Retroativo</title>
+	<!-- start: META -->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+	<meta http-equiv="Content-Language" content="pt-br"></meta>
+	<!--[if IE]><meta http-equiv='X-UA-Compatible' content="IE=edge,IE=9,IE=8,chrome=1" /><![endif]-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0"></meta>
+	<meta name="apple-mobile-web-app-capable" content="yes"></meta>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"></meta>
+	<meta content="${ initParam.project }" name="description" ></meta>
+	<meta content="TDV TI Development at 2015/2016" name="author" ></meta>
+
+    <link href="../../static/core/img/favicon.png" rel="shortcut icon" th:href="@{/core/img/favicon.png}"></link>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../static/plugins/bootstrap/css/bootstrap.css" rel="stylesheet" th:href="@{/plugins/bootstrap/css/bootstrap.css}" ></link>
+    <link href="../../static/plugins/bootstrap/css/tdv-common.css" rel="stylesheet" th:href="@{/plugins/bootstrap/css/tdv-common.css}" ></link>
+
+    <!-- Custom styles for this template -->
+	<link href="../../static/plugins/bootstrap/css/jquery-ui.css" rel="stylesheet"  th:href="@{/plugins/bootstrap/css/jquery-ui.css}" ></link>
+	<link href="../../static/plugins/bootstrap/css/sticky-footer-navbar.css" rel="stylesheet" th:href="@{/plugins/bootstrap/css/sticky-footer-navbar.css}" ></link>
+	
+	<!-- Plugin font-awesome / Icones -->
+	<link rel="stylesheet" href="../../static/plugins/font-awesome/css/font-awesome.min.css" th:href="@{/plugins/font-awesome/css/font-awesome.min.css}" ></link>
+	
+	<!-- alert customizado -->
+	<link rel="stylesheet" href="../../static/plugins/alertify.js-0.3.11/themes/alertify.core.css" th:href="@{/plugins/alertify.js-0.3.11/themes/alertify.core.css}" ></link>
+	<link rel="stylesheet" href="../../static/plugins/alertify.js-0.3.11/themes/alertify.default.css" id="toggleCSS" th:href="@{/plugins/alertify.js-0.3.11/themes/alertify.default.css}" ></link>
+    <link th:href="@{/plugins/bootstrap/css/solveic.css}" ></link>
+	<style>
+		.alertify-log-custom {
+			background: blue;
+		}
+	</style>	
+	
+	<!-- 	<script th:src="@{/app/ConfigApp.js}" ></script> -->
+	<script th:src="@{/plugins/alertify.js-0.3.11/lib/alertify.min.js}" ></script>
+	<script th:src="@{/plugins/alertify.js-0.3.11/configAlertify.js}" ></script>
+	
+    <script src="../../static/plugins/bootstrap/js/ie-emulation-modes-warning.js" th:src="@{/plugins/bootstrap/js/ie-emulation-modes-warning.js}" ></script>
+
+	<script src="../../static/plugins/bootstrap/js/jquery.min.1.11.1.js" th:src="@{/plugins/bootstrap/js/jquery.min.1.11.1.js}" ></script>
+	<script src="../../static/plugins/bootstrap/js/jquery-ui.js" th:src="@{/plugins/bootstrap/js/jquery-ui.js}" ></script>
+	<script src="../../static/plugins/bootstrap/js/configDatePicker.js" th:src="@{/plugins/bootstrap/js/configDatePicker.js}" ></script>
+
+	<link href="../../static/plugins/angular/ui-bootstrap-2.3.1.min.css" th:href="@{/plugins/angular/ui-bootstrap-2.3.1.min.css}"></link>
+	<!-- Start: CORE App JavaScript -->
+
+  </head>
+  	
+<body class="bg-body-cinza">
+
+	<div th:include="core/menu"></div>
+	
+	<div id="spinner" class="spinner" style="display:none;"> 
+        <img id="img-spinner" src="../../static/core/img/loading.gif" th:src="@{/core/img/loading.gif}" alt="Aguarde..."/>
+        <p>Aguarde...</p>
+    </div>
+	<div th:if="${content_page}">
+		<div class="container">
+			<div th:include="${content_page}"></div>
+		</div>
+	</div>
+
+	<div th:include="core/footer :: footer"></div>
+	
+	<!-- 	JMASK -->
+	<script th:src="@{/plugins/jquery.mask.js}" ></script>	
+	<!-- 	LIB ANGULAR 	 -->
+	<script type="text/javascript" src="../../static/plugins/angular/angular.min.js" th:src="@{/plugins/angular/angular.min.js}" ></script>
+	<script type="text/javascript" src="../../static/plugins/angular/ui-bootstrap-2.3.1.min.js" th:src="@{/plugins/angular/ui-bootstrap-2.3.1.min.js}" ></script>
+	<script type="text/javascript" src="../../static/plugins/angular/ui-bootstrap-tpls-2.3.1.min.js" th:src="@{/plugins/angular/ui-bootstrap-tpls-2.3.1.min.js}" ></script>
+    <script src="../../static/plugins/alertify.js-0.3.11/lib/ngAlertify.js" th:src="@{/plugins/alertify.js-0.3.11/lib/ngAlertify.js}" ></script>
+    		
+	<!-- 	<script th:src="@{/plugins/angular/angular-route.js}" ></script> -->
+<!--     <script src="../../static/app/ConfigApp.js" th:src="@{/app/app.js}" ></script> -->
+   	<!-- Controllers -->
+<!--    	<script th:src="@{/core/js/controllers/solicitacao-carga-controller.js}"></script> -->
+<!--     <script src="../../static/app/controllers/UsuarioController.js" th:src="@{/app/controllers/UsuarioController.js}" ></script> -->
+    <!-- Services -->
+<!--     <script th:src="@{/core/js/services/ParticularidadeService.js}"></script> -->
+<!--     <script th:src="@{/core/js/services/ArmazemService.js}"></script> -->
+<!--     <script th:src="@{/core/js/services/TipoVeiculoService.js}"></script> -->
+<!--     <script th:src="@{/core/js/services/UsuarioService.js}"></script> -->
+<!--     <script th:src="@{/core/js/services/SolicitaoCargaService.js}"></script> -->
+<!--     <script th:src="@{/core/js/services/LocalidadeService.js}"></script> -->
+<!--     <script th:src="@{/app/services/UsuarioService.js}" ></script> -->
+	
+    <!-- JS Bootstrap core JavaScript ======================================================================================== -->
+    <script src="../../static/plugins/bootstrap/js/bootstrap.min.js" th:src="@{/plugins/bootstrap/js/bootstrap.min.js}" ></script>
+    <script src="../../static/plugins/bootstrap/js/ie10-viewport-bug-workaround.js" th:src="@{/plugins/bootstrap/js/ie10-viewport-bug-workaround.js}" ></script>
+<!--     <script src="../../static/core/js/services/UsuarioService.js" th:src="@{/core/js/services/UsuarioService.js}" ></script>	 -->
+    <script src="../../static/core/js/mask-1.0.4.js" th:src="@{/core/js/mask-1.0.4.js}" ></script>		
+			
+</body>
+</html>

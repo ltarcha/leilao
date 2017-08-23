@@ -1,0 +1,99 @@
+
+    <div ng-controller="UsuarioController as usuCtrl" class="navbar navbar-default navbar-fixed-top navbar-inverse bg-laranja-tdv" 
+    	 role="navigation" th:fragment="menu-superior">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/mesa" style="padding-top: 10px;">
+			<img src="../../static/core/img/logo-tdv.png" th:src="@{/core/img/logo-tdv.png}" height="30px" alt="Cadastro TDV"></img>
+		  </a>
+        </div>
+        <div class="navbar-collapse collapse">
+        	<div th:if="${session.usuarioLogado}">
+		    	<ul class="nav navbar-nav">
+		        	<li class="active">
+						<a href="/mesa/solicitacao/carga" >
+							<span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>  
+							 Leilões								
+						</a>
+		            </li>
+		            <li>
+						<a href="/mesa" >
+							<span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
+							Meus Produtos
+						</a>
+		            </li> 
+		            <li>
+						<a href="/mesa" >
+							<span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
+							Meus Lances
+						</a>
+		            </li> 
+		  		</ul>
+	          	<ul class="nav navbar-nav navbar-right" style="font-family: monospace;">
+	            	<li class="dropdown">
+	              		<a href="" class="dropdown-toggle" data-toggle="dropdown">
+	              			<img src="../../static/core/img/default-avatar.png" th:src="@{/core/img/default-avatar.png}" height="18px" class="img-circle" alt="">
+	              			</img> &nbsp; <span class="username hidden-xs">{{ usuCtrl.usuarioLogado.nome.split(" ")[0] }}</span> 
+								   &nbsp; <span class="caret"></span>
+				  		</a>
+		                <ul class="dropdown-menu" role="menu"> 
+						  <li class="dropdown-header">
+							  Login: <span class="badge"><i class="glyphicon glyphicon-user"></i> {{ usuCtrl.usuarioLogado.login }}</span>
+						  </li>
+						  <li class="dropdown-header">
+							  CNPJ.: <span class="badge"><i class="glyphicon glyphicon-credit-card"></i>{{ usuCtrl.usuarioLogado.cnpjLogado }}</span>
+						  </li>
+						  <li class="dropdown-header">
+							  Email: <span class="badge"><i class="glyphicon glyphicon-envelope"></i> {{ usuCtrl.usuarioLogado.email }}</span>
+						  </li>
+						  <li role="separator" class="divider"></li>
+						  <li class="dropdown-header">
+							  <i class="glyphicon glyphicon-phone-alt"></i> Telefones..:
+						  </li>
+						  <li class="dropdown-header">
+							  <span class="badge"><i class="glyphicon glyphicon-earphone"></i> {{ usuCtrl.usuarioLogado.telefoneRamal }}</span>
+						  </li>
+						  <li class="dropdown-header">
+							  <span class="badge"><i class="glyphicon glyphicon-earphone"></i> {{ usuCtrl.usuarioLogado.telefoneCelular }}</span>
+						  </li>
+		                  <li class="divider"></li>
+						  <li class="">
+							  <a href="http://extranet.dellavolpe.com.br:6917/usuario/editsimple/{{ usuCtrl.usuarioLogado.codigo }}" onclick="showDialog(this.href); return false;">
+								  <i class="glyphicon glyphicon-user"></i> &nbsp; Alterar Perfil...
+							  </a>
+						  </li>						
+		                  <li class="divider"></li> 		                
+						  <li class="dropdown-header">
+							  <a href="#" ng-click="usuCtrl.logout()">
+								  <i class="glyphicon glyphicon-log-out"></i> &nbsp; Sair
+							  </a>
+						  </li>
+		                </ul>
+	                </li>
+	            </ul> 
+		               
+		 		<ul class="nav navbar-nav navbar-right">
+		          <li class="dropdown">
+		            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<span class="username hidden-xs">Ajuda</span> 
+							<span class="caret"></span>
+					</a>
+		            <ul class="dropdown-menu" role="menu">
+						<li>
+							<a href="#" target="blank" >Manual</a>
+						</li>
+		            </ul>
+		          </li>
+		        </ul>
+			</div>	               
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    
+    

@@ -1,0 +1,51 @@
+<!--========================================================================================================================-->
+<!--*** Modal Connection Detail ********************************************************************************************-->
+<!--========================================================================================================================-->
+<div th:fragment="footer">
+<div class="modal fade showModalFooter" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      
+      	<div class="modal-header" style="background-color:#f49b17;color:white;">
+        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        	<h3 class="modal-title"><i class="glyphicon glyphicon-link"></i> Connection Detail</h3>
+      	</div>
+		
+		<div class="modal-body" th:if="${ session.connectionDetail != null}">
+       		<h5>DataSource: <span class="label label-default" th:text="${session.connectionDetail.poolName != null ? session.connectionDetail.poolName : null}"></span></h5>
+        	<h5>User:       <span class="label label-default" th:text="#{ session.connectionDetail.databaseUser }"></span></h5>
+        	<h5>Usuario:    <span class="label label-default" th:text="#{ session.usuarioLogado != null ? session.usuarioLogado.nome : null }"></span></h5>
+        	<h5>CNPJ:       <span class="label label-default" th:text="#{ session.usuarioLogado != null ? session.usuarioLogado.cnpjLogado : null }"></span></h5>
+        	<h5 id="urlModalFooter" class="hidden">URL:        <small class="label label-default" th:text="#{ session.connectionDetail.databaseUrl }"></small></h5>
+      	</div>
+      	
+      	<div class="modal-footer">
+       		<button type="button" class="btn btn-default" data-dismiss="modal"><i class="glyphicon glyphicon-log-out"></i> Fechar</button>
+      	</div>
+            
+    </div>
+  </div>
+</div>
+
+<div class="bg-cinza-tdv footer">
+     <div class="container">
+       <p class="text-muted">
+   		<strong>Connection Detail:</strong> 
+   		<a href="" data-toggle="modal" data-target=".showModalFooter" th:text="${session.connectionDetail != null ? session.connectionDetail.poolName : 'NoConnection'}"></a> 
+       	&nbsp;|&nbsp; 2017 &copy; Transportes Della Volpe by TI Development. 
+       	&nbsp;|&nbsp; <strong>versão:</strong> <span th:text="#{system.version}"></span>
+       </p>
+     </div> 
+</div>	   
+<script src="../../static/core/js/shortcut.js" th:src="@{/core/js/shortcut.js}" ></script>
+<script>
+	shortcut.add("CTRL+ALT+D",function() {
+		if($('#urlModalFooter').hasClass("hidden")){
+			$('#urlModalFooter').removeClass("hidden");			
+		}else{
+			$('#urlModalFooter').addClass("hidden");
+		}
+	});
+</script> 
+
+</div>
