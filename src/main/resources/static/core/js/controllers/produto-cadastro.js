@@ -6,6 +6,7 @@ app.controller('ProdutoCadastroController', ['ProdutoCadastroService', '$http','
 
 	self.save = function() {
 		ProdutoCadastroService.save(self.produto).then(function(resp){
+			console.log('ProdutoCadastroController.save()');
 			self.produto = resp.data;
 			alertify.success('Cadastrado com sucesso!');
 		}, function(error) {
