@@ -1,7 +1,7 @@
 function ConfigApp() {
 	
 	var _server = function(url) {
-		return "/mesa" + url;
+		return "/leilao" + url;
 	};
 	
 	var _isSessionInvalid = function(responseText) {

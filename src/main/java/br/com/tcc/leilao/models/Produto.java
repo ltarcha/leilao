@@ -6,7 +6,22 @@ public class Produto {
 	private Float valorInicio;
 	private String descricao;
 	private String urlImg;
+	private Long idLeilao;
+	private Long idProprietario;
 	
+	public Produto() {
+	}
+	
+	public Produto(Long id, Float valorInicio, String descricao, String urlImg, Long idLeilao, Long idProprietario) {
+		super();
+		this.id = id;
+		this.valorInicio = valorInicio;
+		this.descricao = descricao;
+		this.urlImg = urlImg;
+		this.idLeilao = idLeilao;
+		this.idProprietario = idProprietario;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -31,31 +46,17 @@ public class Produto {
 	public void setUrlImg(String urlImg) {
 		this.urlImg = urlImg;
 	}
-	
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		return result;
+	public Long getIdLeilao() {
+		return idLeilao;
 	}
-	
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Produto other = (Produto) obj;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		return true;
+	public void setIdLeilao(Long idLeilao) {
+		this.idLeilao = idLeilao;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Produto [id=" + id + ", valorInicio=" + valorInicio + ", descricao=" + descricao + ", urlImg=" + urlImg
+				+ ", idLeilao=" + idLeilao + ", idProprietario=" + idProprietario + "]";
+	}
 	
 }

@@ -1,4 +1,4 @@
-var app = angular.module('leilaoApp',['ngAlertify', 'ngRoute']);
+var app = angular.module('leilaoApp',['ngRoute']);
 
 var SERVER_APP = "/leilao";
 

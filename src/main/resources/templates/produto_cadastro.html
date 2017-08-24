@@ -1,0 +1,66 @@
+<!-- DIV DO CONTROLLER -->
+<div>
+	<div class="panel with-nav-tabs panel-tdv">
+		<div class="panel-heading">
+			<h2>Produtos</h2>
+		</div>
+		<div class="panel-body">
+			<div class="tab-content">
+				<!-- INICIO TAB CADASTRO -->
+				<div class="tab-pane fade in active">
+					<form role="form" name="frmSolicitacaoCarga" ng-submit="ctrl.save()">
+						<div class="row form-inline">
+							<div class="form-group">
+								<label>Codigo:</label> 
+								<input type="number"
+									   disabled="disabled"
+									   name="codigo"
+									   class="form-control" 
+									   id="id_codigo"
+									   autofocus="autofocus" 
+									   ng-model="ctrl.solcarga.codigo"/>
+							</div>
+						</div>
+						<hr/>
+						<div style="font-size: 12px;">
+							<div class="row">
+								<div class="col-md-2">
+									<label>Valor:</label> 
+									<input type="number"
+										   step="0.01" 
+										   name="valorInicio"
+										   class="form-control" 
+										   id="id_valorInicio"
+										   autofocus="autofocus" 
+										   required="true"
+										   ng-model="ctrl.produto.valorInicio"/>
+								</div>
+								<div class="col-md-10">
+									<label>Descricao:</label> 
+									<input type="number"
+										   step="0.01" 
+										   name="valorInicio"
+										   class="form-control" 
+										   id="id_valorInicio"
+										   autofocus="autofocus" 
+										   required="true"
+										   ng-model="ctrl.produto.valorInicio"/>
+								</div>								
+							</div>
+							<br/>
+							<hr style="border-top: 1px solid orange; margin-bottom: 5px;"/>
+							<div align="center">
+								<button type="submit" ng-disabled="ctrl.disabledFields" class="btn btn-success">
+									<i class="glyphicon glyphicon-pencil" aria-hidden="true"></i> Cadastrar
+								</button>
+								<a class="btn btn-danger" data-toggle="modal" data-target="#modalCancelamento">
+									<i class="glyphicon glyphicon-remove" aria-hidden="true"></i> Cancelar
+								</a>														
+							</div>										
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

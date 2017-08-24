@@ -1,0 +1,88 @@
+<div class="panel with-nav-tabs panel-tdv">
+	<div align="center">
+		<div class="row" style="height:400px;">
+			<div class="col-md-4" style="vertical-align:middle;height:200px;margin-top: 100px;padding-top: 100px;">
+				<a href="/leilao/produto/cadastro" >
+					<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+					Cadastrar
+				</a>
+			</div>
+			<div class="col-md-4" style="vertical-align:middle;height:200px;margin-top: 100px;padding-top: 100px;">
+				<a href="/leilao/produto/consulta" >
+					<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+					Consultar
+				</a>
+			</div>
+			<div class="col-md-4" style="vertical-align:middle;height:200px;margin-top: 100px;padding-top: 100px;">
+				<a href="/leilao/exclusao" >
+					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+					Excluir
+				</a>
+			</div>					
+		</div>	
+	</div>
+</div>
+<!-- 	Modal Cancelamento SolicitacaoCarga-->
+<div class="modal fade" id="modalCancelamento" tabindex="-1" role="dialog" aria-labelledby="modalCancelamento" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      
+	  <div class="modal-header" style="background-color:#f49b17;">
+		<button type="button" class="close" data-dismiss="modal">
+			<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+		</button>
+		<h4 class="modal-title" id="modalCancelamento">
+			<span style="color:white" class="glyphicon glyphicon-exclamation-sign">
+				Cancelamento Solicitação <span ></span>
+			</span> 
+		</h4>
+ 	  </div>      	      
+      <div class="modal-body" id="modalCancelamento-body">
+		<div class="container">
+			<form role="form" name="frmSolicitacaoCarga" ng-submit="ctrl.cancelar();"> 
+				<div class="row">
+					<div class="col-md-11">
+						<label>Motivo Cancelamento:</label> 
+						<input type="text"
+							   step="1"
+							   name="veiculosDisp"
+							   class="form-control" 
+							   id="id_veiculosDisp"
+							   autofocus="autofocus" 
+							   required="required" 
+							   ng-model="ctrl.solcarga.obsCancelamento"/>
+					</div>
+				</div>
+				<hr/>
+				<div class="pull-right">
+					<button type="submit" class="btn btn-danger form-control">
+						 <i class="glyphicon glyphicon-remove" aria-hidden="true"></i> Cancelar
+					</button>						
+				</div>					
+			</form>
+		</div>      		
+      </div>
+    </div>
+  </div>
+</div>	
+<script type="text/javascript">
+	$(document).ready(function() {	
+		$( ".datepicker" ).datepicker({
+			   dateFormat: 'dd/mm/yy',
+			   dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
+			   dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+			   dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+			   monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+			   monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
+			   nextText: 'Próximo',
+			   prevText: 'Anterior'
+			});
+			$.ajaxSetup({ cache: false });
+	});
+
+	jQuery(function($){
+ 		$(".hours").mask("99:99");
+ 		$(".data").mask("99/99/9999");
+ 		$('.money').mask('9999999.99', {reverse: true});
+ 	});
+</script>

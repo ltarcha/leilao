@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br" ng-app="leialoApp" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-br" ng-app="leilaoApp" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
   <head>
     <title>Leilao Retroativo</title>
 	<!-- start: META -->
@@ -10,7 +10,7 @@
 	<meta name="apple-mobile-web-app-capable" content="yes"></meta>
 	<meta name="apple-mobile-web-app-status-bar-style" content="black"></meta>
 	<meta content="${ initParam.project }" name="description" ></meta>
-	<meta content="TDV TI Development at 2015/2016" name="author" ></meta>
+	<meta content="TCC Development at 2017" name="author" ></meta>
 
     <link href="../../static/core/img/favicon.png" rel="shortcut icon" th:href="@{/core/img/favicon.png}"></link>
 
@@ -35,7 +35,7 @@
 		}
 	</style>	
 	
-	<!-- 	<script th:src="@{/app/ConfigApp.js}" ></script> -->
+	<script th:src="@{/app/ConfigApp.js}" ></script>
 	<script th:src="@{/plugins/alertify.js-0.3.11/lib/alertify.min.js}" ></script>
 	<script th:src="@{/plugins/alertify.js-0.3.11/configAlertify.js}" ></script>
 	
@@ -74,10 +74,10 @@
 	<script type="text/javascript" src="../../static/plugins/angular/ui-bootstrap-tpls-2.3.1.min.js" th:src="@{/plugins/angular/ui-bootstrap-tpls-2.3.1.min.js}" ></script>
     <script src="../../static/plugins/alertify.js-0.3.11/lib/ngAlertify.js" th:src="@{/plugins/alertify.js-0.3.11/lib/ngAlertify.js}" ></script>
     		
-	<!-- 	<script th:src="@{/plugins/angular/angular-route.js}" ></script> -->
-<!--     <script src="../../static/app/ConfigApp.js" th:src="@{/app/app.js}" ></script> -->
+	<script th:src="@{/plugins/angular/angular-route.js}" ></script>
+    <script src="../../static/app/app.js" th:src="@{/app/app.js}" ></script>
    	<!-- Controllers -->
-<!--    	<script th:src="@{/core/js/controllers/solicitacao-carga-controller.js}"></script> -->
+   	<script th:src="@{/core/js/controllers/solicitacao-carga-controller.js}"></script>
 <!--     <script src="../../static/app/controllers/UsuarioController.js" th:src="@{/app/controllers/UsuarioController.js}" ></script> -->
     <!-- Services -->
 <!--     <script th:src="@{/core/js/services/ParticularidadeService.js}"></script> -->
