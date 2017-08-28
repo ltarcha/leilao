@@ -1,0 +1,37 @@
+<div ng-controller="ProdutoConsultaController as ctrl">
+	<h2>Meus Produtos</h2>
+	<div class="tab-pane fade in active">
+	  	<div style="width:100%; height:300px; overflow: auto;" class="table-responsive">
+			<table class="table table-striped table-bordered table-hover table-condensed">
+				<thead>
+					<tr class="well">
+						<th class="col-sm-1 text-center">Codigo</th>
+						<th class="col-sm-1 text-center">Valor Inicial</th>
+						<th class="col-sm-9 text-center">Descricao</th>
+						<th class="col-sm-1 text-center">
+							<span class="glyphicon glyphicon-remove-circle"/> 
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="item in ctrl.listProdutos">
+						<td class="col-sm-1 text-center">{{item.id}}</td>
+						<td class="col-sm-1 text-center">{{item.valorInicio}}</td>
+						<td class="col-sm-9 text-center">{{item.descricao}}</td>
+						<td class="col-sm-1 text-center"> 
+							<a class="glyphicon glyphicon-remove-circle" style="color:red" ng-click="ctrl.deleteProduto(item)"> </a>
+						</td>
+					</tr>
+					<tr ng-show="!ctrl.listProdutos.length">
+						<td colspan="13" class="text-center">Você não tem produtos cadastrados</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="badge pull-right" ng-show="(ctrl.listProdutos).length">
+				<span>{{ctrl.listProdutos.length}}</span>
+			</div>			
+	    </div>					
+	</div>
+</div>
+
+
