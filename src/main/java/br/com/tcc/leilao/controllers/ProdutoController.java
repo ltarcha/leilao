@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -20,10 +21,14 @@ import org.springframework.web.servlet.ModelAndView;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import br.com.tcc.leilao.models.Produto;
+import br.com.tcc.leilao.services.ProdutoService;
 
 @Controller
 @RequestMapping(value="/produto")
 public class ProdutoController {
+	
+	@Autowired
+	private ProdutoService produtoService; 
 
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public ModelAndView index(Model model) {
@@ -50,10 +55,7 @@ public class ProdutoController {
 	@RequestMapping( value="/save", method=RequestMethod.POST, consumes="application/json", produces="application/json; charset=utf-8" )
 	public @ResponseBody ResponseEntity<String> insert(@RequestBody Produto produto, HttpSession session){
 		try {
-			Produto save = new Produto();
-			save = produto;
-			save.setId(1L);
-			
+			Produto save = produtoService.save(produto);
 			return new ResponseEntity<String>(new ObjectMapper().writeValueAsString(save), HttpStatus.OK);
 		} catch(Exception e) {
 			e.printStackTrace();

@@ -1,7 +1,12 @@
 package br.com.tcc.leilao.models;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "produto")
 public class Produto {
 
+	@Id
 	private Long id;
 	private Float valorInicio;
 	private String descricao;
