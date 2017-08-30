@@ -1,7 +1,6 @@
 package br.com.tcc.leilao.controllers;
 
 
-import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -55,12 +54,12 @@ public class ProdutoController {
 	@RequestMapping( value="/save", method=RequestMethod.POST, consumes="application/json", produces="application/json; charset=utf-8" )
 	public @ResponseBody ResponseEntity<String> insert(@RequestBody Produto produto, HttpSession session){
 		try {
-			Produto save = produtoService.save(produto);
+			Produto save = produtoService.save(produto, session);
 			return new ResponseEntity<String>(new ObjectMapper().writeValueAsString(save), HttpStatus.OK);
 		} catch(Exception e) {
 			e.printStackTrace();
 			return new ResponseEntity<String>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-		}		
+		}
 	}
 	
 	@RequestMapping( value="/consulta/{id}", method=RequestMethod.POST, produces="application/json; charset=utf-8" )
@@ -79,12 +78,7 @@ public class ProdutoController {
 	@RequestMapping( value="/consulta/all", method=RequestMethod.POST, produces="application/json; charset=utf-8" )
 	public @ResponseBody ResponseEntity<String> findAll(HttpSession session){
 		try {
-			Produto produto = new Produto();
-			produto.setId(1L);
-			produto.setValorInicio(new Float("200.00"));
-			produto.setDescricao("TESTE - DESCRICAO");
-			List<Produto> list = Arrays.asList(produto, produto, produto); 
-			
+			List<Produto> list = produtoService.buscaPorUsuario(session);
 			return new ResponseEntity<String>(new ObjectMapper().writeValueAsString(list), HttpStatus.OK);
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -95,7 +89,7 @@ public class ProdutoController {
 	@RequestMapping( value="/delete", method=RequestMethod.POST, consumes="application/json", produces="application/json; charset=utf-8" )
 	public @ResponseBody ResponseEntity<String> delete(@RequestBody Produto produto, HttpSession session){
 		try {
-			//TODO: INPLEMENTAR QUANDO FOR IMPLEMENTADO BD
+			produtoService.delete(produto);
 			return new ResponseEntity<String>(HttpStatus.OK);
 		} catch(Exception e) {
 			e.printStackTrace();

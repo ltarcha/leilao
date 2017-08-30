@@ -6,8 +6,9 @@
 				<thead>
 					<tr class="well">
 						<th class="col-sm-1 text-center">Codigo</th>
+						<th class="col-sm-1 text-center">Data Cadastro</th>
 						<th class="col-sm-1 text-center">Valor Inicial</th>
-						<th class="col-sm-9 text-center">Descricao</th>
+						<th class="col-sm-8 text-center">Descricao</th>
 						<th class="col-sm-1 text-center">
 							<span class="glyphicon glyphicon-remove-circle"/> 
 						</th>
@@ -16,6 +17,7 @@
 				<tbody>
 					<tr ng-repeat="item in ctrl.listProdutos">
 						<td class="col-sm-1 text-center">{{item.id}}</td>
+						<td class="col-sm-1 text-center">{{item.dataCadastro | date:"dd/MM/yyyy 'at' hh:mma"}}</td>
 						<td class="col-sm-1 text-center">{{item.valorInicio}}</td>
 						<td class="col-sm-9 text-center">{{item.descricao}}</td>
 						<td class="col-sm-1 text-center"> 

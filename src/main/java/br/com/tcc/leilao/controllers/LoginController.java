@@ -23,17 +23,24 @@ public class LoginController {
 	@Autowired 
 	private UsuarioService usuarioService;
 	
+	@RequestMapping(value = "", method = RequestMethod.GET)
+	public ModelAndView index(Model model) {
+		ModelAndView mv = new ModelAndView("index");
+		mv.addObject("content_page", "login");
+		return mv;
+	}
+	
+	
 	/**
 	 * 
 	 * @param usuario
 	 * @throws SQLException
 	 * 
 //	 */
-	@RequestMapping(value = "/set/{usuario}/{senha}", method = RequestMethod.GET)
+	@RequestMapping(value = "/set/{usuario}/{senha}", method = RequestMethod.POST)
 	public String login(@PathVariable String usuario, @PathVariable String senha, HttpSession session, HttpServletRequest request){
-		Usuario usuarioWebLogado = usuarioService.getUsuario(usuario, senha);
-		session.setAttribute("usuarioLogado", usuarioWebLogado);
-		
+		Usuario usuarioLogado = usuarioService.getUsuario(usuario, senha);
+		session.setAttribute("usuarioLogado", usuarioLogado);
 		return "redirect:/";
 	}
 	

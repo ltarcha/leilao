@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br" ng-app="leilaoApp" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
   <head>
-    <title>Leilao Retroativo</title>
+    <title>Last Bit</title>
 	<!-- start: META -->
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
 	<meta http-equiv="Content-Language" content="pt-br"></meta>
@@ -17,6 +17,7 @@
     <!-- Bootstrap core CSS -->
     <link href="../../static/plugins/bootstrap/css/bootstrap.css" rel="stylesheet" th:href="@{/plugins/bootstrap/css/bootstrap.css}" ></link>
     <link href="../../static/plugins/bootstrap/css/tdv-common.css" rel="stylesheet" th:href="@{/plugins/bootstrap/css/tdv-common.css}" ></link>
+    <link href="../../static/plugins/bootstrap/css/login.css" rel="stylesheet" th:href="@{/plugins/bootstrap/css/login.css}" ></link>
 
     <!-- Custom styles for this template -->
 	<link href="../../static/plugins/bootstrap/css/jquery-ui.css" rel="stylesheet"  th:href="@{/plugins/bootstrap/css/jquery-ui.css}" ></link>
@@ -79,8 +80,10 @@
    	<!-- Controllers -->
    	<script th:src="@{/core/js/controllers/produto-cadastro.js}"></script>
    	<script th:src="@{/core/js/controllers/produto-consulta.js}"></script>
+   	<script th:src="@{/core/js/controllers/login.js}"></script>
 <!--     <script src="../../static/app/controllers/UsuarioController.js" th:src="@{/app/controllers/UsuarioController.js}" ></script> -->
     <!-- Services -->
+    <script th:src="@{/core/js/services/LoginService.js}"></script>
     <script th:src="@{/core/js/services/ProdutoCadastroService.js}"></script>
     <script th:src="@{/core/js/services/ProdutoConsultaService.js}"></script>
 <!--     <script th:src="@{/core/js/services/LocalidadeService.js}"></script> -->

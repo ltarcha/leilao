@@ -32,20 +32,9 @@
        <p class="text-muted">
    		<strong>Connection Detail:</strong> 
    		<a href="" data-toggle="modal" data-target=".showModalFooter" th:text="${session.connectionDetail != null ? session.connectionDetail.poolName : 'NoConnection'}"></a> 
-       	&nbsp;|&nbsp; 2017 &copy; Transportes Della Volpe by TI Development. 
+       	&nbsp;|&nbsp; 2017 &copy; TCC by TI Development. 
        	&nbsp;|&nbsp; <strong>versão:</strong> <span th:text="#{system.version}"></span>
        </p>
      </div> 
 </div>	   
-<script src="../../static/core/js/shortcut.js" th:src="@{/core/js/shortcut.js}" ></script>
-<script>
-	shortcut.add("CTRL+ALT+D",function() {
-		if($('#urlModalFooter').hasClass("hidden")){
-			$('#urlModalFooter').removeClass("hidden");			
-		}else{
-			$('#urlModalFooter').addClass("hidden");
-		}
-	});
-</script> 
-
 </div>

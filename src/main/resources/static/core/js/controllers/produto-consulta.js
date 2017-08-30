@@ -16,6 +16,7 @@ app.controller('ProdutoConsultaController', ['ProdutoConsultaService', '$http','
 	self.deleteProduto = function(item) {
 		ProdutoConsultaService.deleteProduto(item).then(function(resp){
 			alertify.success('Deletado com sucesso!');
+			self.init();
 		}, function(error) {
 			alertify.error(JSON.stringify(error.data));
 		});

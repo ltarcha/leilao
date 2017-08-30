@@ -1,5 +1,7 @@
 package br.com.tcc.leilao.models;
 
+import java.util.Calendar;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -9,9 +11,10 @@ public class Produto {
 	@Id
 	private Long id;
 	private Float valorInicio;
+	private Float valorAtual;
 	private String descricao;
 	private String urlImg;
-	private Long idLeilao;
+	private Calendar dataCadastro;
 	private Long idProprietario;
 	
 	public Produto() {
@@ -23,7 +26,6 @@ public class Produto {
 		this.valorInicio = valorInicio;
 		this.descricao = descricao;
 		this.urlImg = urlImg;
-		this.idLeilao = idLeilao;
 		this.idProprietario = idProprietario;
 	}
 
@@ -51,17 +53,35 @@ public class Produto {
 	public void setUrlImg(String urlImg) {
 		this.urlImg = urlImg;
 	}
-	public Long getIdLeilao() {
-		return idLeilao;
+	public Long getIdProprietario() {
+		return idProprietario;
 	}
-	public void setIdLeilao(Long idLeilao) {
-		this.idLeilao = idLeilao;
+
+	public void setIdProprietario(Long idProprietario) {
+		this.idProprietario = idProprietario;
+	}
+
+	public Calendar getDataCadastro() {
+		return dataCadastro;
+	}
+
+	public void setDataCadastro(Calendar dataCadastro) {
+		this.dataCadastro = dataCadastro;
+	}
+
+	public Float getValorAtual() {
+		return valorAtual;
+	}
+
+	public void setValorAtual(Float valorAtual) {
+		this.valorAtual = valorAtual;
 	}
 
 	@Override
 	public String toString() {
-		return "Produto [id=" + id + ", valorInicio=" + valorInicio + ", descricao=" + descricao + ", urlImg=" + urlImg
-				+ ", idLeilao=" + idLeilao + ", idProprietario=" + idProprietario + "]";
+		return "Produto [id=" + id + ", valorInicio=" + valorInicio + ", valorAtual=" + valorAtual + ", descricao="
+				+ descricao + ", urlImg=" + urlImg + ", dataCadastro=" + dataCadastro + ", idProprietario="
+				+ idProprietario + "]";
 	}
-	
+
 }
