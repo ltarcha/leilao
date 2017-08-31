@@ -1,0 +1,95 @@
+<div ng-controller="UsuarioCadastroController as ctrl">
+	<div class="panel with-nav-tabs panel-tdv">
+		<div class="panel-heading">
+			<h2>Cadastre-se</h2>
+		</div>
+		<hr style="border-top: 1px solid orange; margin-bottom: 5px;"/>
+		<div class="panel-body">
+			<div class="tab-content">
+				<!-- INICIO TAB CADASTRO -->
+				<div class="tab-pane fade in active">
+					<form role="form" name="frmCadastroUsuario" ng-submit="ctrl.save()">
+						<div class="row form-inline">
+							<div class="form-group">
+								<label>Seu Codigo:</label> 
+								<input type="number"
+									   disabled="disabled"
+									   name="id"
+									   class="form-control" 
+									   id="id_codigo"
+									   autofocus="autofocus"
+									   ng-model="ctrl.usuario.id"/>
+							</div>
+						</div>
+						<hr/>
+						<div style="font-size: 12px;">
+							<div class="row">
+								<div class="col-md-2">
+									<label>Nome Completo:</label> 
+									<input type="text"
+										   step="0.01" 
+										   name="nomeCompleto"
+										   class="form-control" 
+										   id="id_nomeCompleto"
+										   autofocus="autofocus" 
+										   required="true"
+										   ng-model="ctrl.usuario.nome"/>
+								</div>
+								<div class="col-md-2">
+									<label>Login:</label> 
+									<input type="text"
+										   name="login"
+										   class="form-control" 
+										   id="id_login"
+										   autofocus="autofocus" 
+										   required="true"
+										   ng-model="ctrl.usuario.login"/>
+								</div>
+								<div class="col-md-2">
+									<label>Senha:</label> 
+									<input type="password"
+										   name="senha"
+										   class="form-control" 
+										   id="id_senha"
+										   autofocus="autofocus" 
+										   required="true"
+										   ng-model="ctrl.usuario.senha"/>
+								</div>
+								<div class="col-md-2">
+									<label>E-mail:</label> 
+									<input type="text"
+										   name="email"
+										   class="form-control" 
+										   id="id_email"
+										   autofocus="autofocus" 
+										   required="true"
+										   ng-model="ctrl.usuario.email"/>
+								</div>
+								<div class="col-md-2">
+									<label>Telefone:</label> 
+									<input type="text"
+										   name="telefone"
+										   class="form-control" 
+										   id="id_telefone"
+										   autofocus="autofocus" 
+										   required="true"
+										   ng-model="ctrl.usuario.telefone"/>
+								</div>
+							</div>
+							<br/>
+							<hr style="border-top: 1px solid orange; margin-bottom: 5px;"/>
+							<div align="center">
+								<button type="submit" class="btn btn-success">
+									<i class="glyphicon glyphicon-pencil" aria-hidden="true"></i> Cadastrar
+								</button>
+								<a class="btn btn-danger" data-toggle="modal">
+									<i class="glyphicon glyphicon-remove" aria-hidden="true"></i> Cancelar
+								</a>														
+							</div>										
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
