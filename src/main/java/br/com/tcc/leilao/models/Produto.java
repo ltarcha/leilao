@@ -12,20 +12,23 @@ public class Produto {
 	private Long id;
 	private Float valorInicio;
 	private Float valorAtual;
+	private String titulo;
 	private String descricao;
-	private String urlImg;
 	private Calendar dataCadastro;
 	private Long idProprietario;
 	
 	public Produto() {
 	}
 	
-	public Produto(Long id, Float valorInicio, String descricao, String urlImg, Long idLeilao, Long idProprietario) {
+	public Produto(Long id, Float valorInicio, Float valorAtual, String titulo, String descricao, Calendar dataCadastro,
+			Long idProprietario) {
 		super();
 		this.id = id;
 		this.valorInicio = valorInicio;
+		this.valorAtual = valorAtual;
+		this.titulo = titulo;
 		this.descricao = descricao;
-		this.urlImg = urlImg;
+		this.dataCadastro = dataCadastro;
 		this.idProprietario = idProprietario;
 	}
 
@@ -47,12 +50,15 @@ public class Produto {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public String getUrlImg() {
-		return urlImg;
+
+	public String getTitulo() {
+		return titulo;
 	}
-	public void setUrlImg(String urlImg) {
-		this.urlImg = urlImg;
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
+
 	public Long getIdProprietario() {
 		return idProprietario;
 	}
@@ -79,8 +85,8 @@ public class Produto {
 
 	@Override
 	public String toString() {
-		return "Produto [id=" + id + ", valorInicio=" + valorInicio + ", valorAtual=" + valorAtual + ", descricao="
-				+ descricao + ", urlImg=" + urlImg + ", dataCadastro=" + dataCadastro + ", idProprietario="
+		return "Produto [id=" + id + ", valorInicio=" + valorInicio + ", valorAtual=" + valorAtual + ", titulo="
+				+ titulo + ", descricao=" + descricao + ", dataCadastro=" + dataCadastro + ", idProprietario="
 				+ idProprietario + "]";
 	}
 
