@@ -1,0 +1,71 @@
+<div ng-controller="AnexoController as ctrl">
+	<input type="hidden" ng-model="ctrl.produto.id" th:attr="ng-init='ctrl.produto.id = '+${produto_codigo}+''"/>
+	<input type="hidden" ng-init="ctrl.init()"/>
+	<div class="panel with-nav-tabs panel-tdv">
+		<div class="row">
+			<div class="panel-heading" align="left">
+				<h3>Anexo</h3>
+			</div>
+		</div>
+		<div class="tab-pane fade in active">
+		  	<div style="width:100%; height:150px; overflow: auto;" class="table-responsive">
+				<table class="table table-striped table-bordered table-hover table-condensed">
+					<thead>
+						<tr class="well">
+							<th class="col-sm-1 text-center">ID</th>
+							<th class="col-sm-1 text-center">ID PRODUTO</th>
+							<th class="col-sm-9 text-center">Link</th>
+							<th class="col-sm-1 text-center">
+								<span class="glyphicon glyphicon-remove-circle"/> 
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="item in ctrl.listAnexos">
+							<td class="col-sm-1 text-center">{{item.id}}</td>
+							<td class="col-sm-1 text-center">{{item.idProduto}}</td>
+							<td class="col-sm-9 text-center"><a href="{{item.path}}" target="_blank">Clique para baixar a imagem</a></td>
+							<td class="col-sm-1 text-center"> 
+								<a class="glyphicon glyphicon-remove-circle" style="color:red" ng-click="ctrl.deleteProduto(item)"> </a>
+							</td>
+						</tr>
+						<tr ng-show="!ctrl.listAnexos.length">
+							<td colspan="13" class="text-center">Esse produto ainda não contem anexos</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="badge pull-right" ng-show="(ctrl.listAnexos).length">
+					<span>{{ctrl.listAnexos.length}}</span>
+				</div>			
+		    </div>
+		    <hr style="border-top: 1px solid orange; margin-bottom: 5px;"/>
+			<form th:action="${#httpServletRequest.getContextPath() + '/anexo/save'}" method="post" enctype="multipart/form-data">
+				<div class="panel panel-default">
+			  		<div class="panel-body">
+			  			<div class="row">
+							<div class="form-group col-md-1">
+								<label>Produto:</label> 
+								<input type="number"
+									   readonly="readonly"
+									   name="produto_id"
+									   class="form-control" 
+									   id="produto_id"
+									   autofocus="autofocus"
+									   ng-model="ctrl.produto.id"/>
+							</div>
+			  			</div>
+						<div class="row">
+						 	<div class="pull-left">
+						 		<br/>
+				    			<input type="file" name="file" required="required"/>
+				    		</div>
+				    		<div class="pull-right">
+				    			<button type="submit" class="btn btn-info">Enviar</button>
+				    		</div>			  			
+						</div>
+			  		</div>
+				</div>
+			</form>		    		
+		</div>
+	</div>
+</div>

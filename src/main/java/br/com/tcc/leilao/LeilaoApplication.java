@@ -12,7 +12,7 @@ import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 
-@ComponentScan({"br.com.tcc.leilao*", "br.com.tcc.leilao.services"})
+@ComponentScan({"br.com.tcc.leilao*"})
 @SpringBootApplication
 public class LeilaoApplication {
 	
@@ -55,11 +55,10 @@ public class LeilaoApplication {
       return springTemplateEngine;
     }
     
-//    @Bean(name="dsJndiName")
-//    public String jndiName() {
-//		return System.getenv("JNDI_MESA") != null ? System.getenv("JNDI_MESA") : 
-//			 System.getenv("JNDI_GLOBAL") != null ? System.getenv("JNDI_GLOBAL") : "java:comp/env/jdbc/TdvGlobal_Pool";
-//	}    
+    @Bean(name="storage")
+    public String storage() {
+		return System.getenv("STORAGE");
+	}    
 
     @Bean
     public ThymeleafViewResolver viewResolver() {
@@ -67,5 +66,5 @@ public class LeilaoApplication {
       thymeleafViewResolver.setTemplateEngine(springTemplateEngine());
       thymeleafViewResolver.setCharacterEncoding("UTF-8");
       return thymeleafViewResolver;
-    }  
+    }
 }

@@ -1,4 +1,4 @@
-app.controller('ProdutoCadastroController', ['ProdutoCadastroService', '$http','$filter', '$location', '$window', '$scope',
+app.controller('ProdutoCadastroController', ['ProdutoCadastroService','$http','$filter', '$location', '$window', '$scope',
                                      function(ProdutoCadastroService, $http, $filter, $location, $window, $scope){
 	
 	

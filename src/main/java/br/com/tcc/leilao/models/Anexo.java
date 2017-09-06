@@ -1,7 +1,12 @@
 package br.com.tcc.leilao.models;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "anexo")
 public class Anexo {
 
+	@Id
 	private Long id;
 	private Long idProduto;
 	private String path;

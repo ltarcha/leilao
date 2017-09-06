@@ -9,16 +9,26 @@
 				<div class="tab-pane fade in active">
 					<form role="form" name="frmSolicitacaoCarga" ng-submit="ctrl.save()">
 						<div class="row form-inline">
-							<div class="form-group">
-								<label>Codigo:</label> 
-								<input type="number"
-									   disabled="disabled"
-									   name="id"
-									   class="form-control" 
-									   id="id_codigo"
-									   autofocus="autofocus"
-									   ng-model="ctrl.produto.id"/>
-							</div>
+								<div class="col-xs-9 col-md-9">
+									<div class="form-group">
+										<label>Titulo:</label> 
+										<input type="text"
+											   name="id"
+											   class="form-control" 
+											   id="id_titulo"
+											   autofocus="autofocus"
+											   style="width: 726px;"
+											   ng-model="ctrl.produto.titulo"/>
+									</div>
+								</div>
+								<div class="pull-right">
+									<div class="form-group">
+										<label class="label label-default">Codigo:</label> 
+										<div class="badge" ng-show="ctrl.produto.id">
+											<span>{{ctrl.produto.id}}</span>
+										</div>										
+									</div>
+								</div>
 						</div>
 						<hr/>
 						<div style="font-size: 12px;">
@@ -54,6 +64,9 @@
 								</button>
 								<a class="btn btn-danger" data-toggle="modal">
 									<i class="glyphicon glyphicon-remove" aria-hidden="true"></i> Cancelar
+								</a>														
+								<a href="/leilao/anexo/{{ctrl.produto.id}}" class="btn btn-info" data-toggle="modal" ng-show="ctrl.produto.id">
+									<i class="glyphicon glyphicon-paperclip" aria-hidden="true"></i> Anexos
 								</a>														
 							</div>										
 						</div>
